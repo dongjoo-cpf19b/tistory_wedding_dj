@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+.env
+.env.*
+*.wedding.json
+photos/
+outputs/
+*.log
+.DS_Store

@@ -1,0 +1,10 @@
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const C=require('../assets/core.js');
+const photo={name:'reference.jpg',data:'data:image/jpeg;base64,/9j/AA=='};
+test('fresh project uses independent scene ids',()=>{assert.notEqual(C.scene().id,C.scene().id);assert.equal(C.project().scenes.length,1);});
+test('prompt numbers only present references and keeps identity order',()=>{const p=C.project(),s=p.scenes[0];p.people.groom=photo;s.studio=photo;s.hairRef=photo;const prompt=C.prompt(p,s);assert.match(prompt,/1\. 신랑 얼굴\n2\. 스튜디오 씬\n3\. 헤어 참고/);assert.doesNotMatch(prompt,/undefined/);assert.match(prompt,/스튜디오 사진 속 모델의 얼굴은 사용하지/);});
+test('project roundtrip keeps photos and strips unrecognized fields',()=>{const p=C.project();p.people.bride=photo;p.apiKey='should-not-be-imported';p.scenes[0].secret='drop';const q=C.normalize(JSON.parse(JSON.stringify(p)));assert.deepEqual(q.people.bride,photo);assert.equal(q.apiKey,undefined);assert.equal(q.scenes[0].secret,undefined);});
+test('import rejects remote, SVG and script image URLs',()=>{for(const data of ['https://tracker.invalid/photo.png','data:image/svg+xml;base64,PHN2Zz4=','javascript:alert(1)']){const p=C.project();p.people.bride={name:'x',data};assert.throws(()=>C.normalize(p));}});
+test('import bounds scene count and text lengths',()=>{const p=C.project();p.scenes[0].pose='x'.repeat(5000);assert.equal(C.normalize(p).scenes[0].pose.length,1200);p.scenes=Array.from({length:13},C.scene);assert.throws(()=>C.normalize(p));p.scenes=[];assert.throws(()=>C.normalize(p));});
+test('import rejects unsupported format and handles optional values',()=>{assert.throws(()=>C.normalize({}));const p=C.project();delete p.people;p.scenes[0].mood='unexpected';assert.equal(C.normalize(p).people.bride,null);assert.equal(C.normalize(p).scenes[0].mood,C.moods[0]);});
