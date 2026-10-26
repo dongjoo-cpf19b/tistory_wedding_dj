@@ -4,6 +4,8 @@
 
 스튜디오 씬·헤어·드레스를 고르고, 사용자 본인의 AI와 연결해 촬영 시안을 준비하는 무료 오픈소스 패키지입니다. 얼굴사진은 선택입니다. API 키, 별도 유료 API, 회원가입이 필요하지 않습니다.
 
+**[설치 전 화면 둘러보기](https://dongjoo-cpf19b.github.io/tistory_wedding_dj/)**
+
 ## 내 AI에 이 문장을 붙여넣으세요
 
 ```text
@@ -17,9 +19,9 @@ https://github.com/dongjoo-cpf19b/tistory_wedding_dj
 
 주소만 붙이는 것보다 위 설치 요청을 함께 붙이면 의도가 명확합니다. AI가 URL을 읽을 수 없으면 아래 패키지를 내려받아 첨부해 주세요.
 
-**[HTML 실행 파일 다운로드](../../raw/refs/heads/main/downloads/wedding-dj.html)** · **[시작 패키지 ZIP 다운로드](../../raw/refs/heads/main/downloads/wedding-dj-starter.zip)**
+**[시작 패키지 ZIP 다운로드](../../raw/refs/heads/main/downloads/wedding-dj-starter.zip)** · **[HTML 실행 파일](../../raw/refs/heads/main/downloads/wedding-dj.html)**
 
-HTML 파일은 저장한 뒤 브라우저로 열면 됩니다. ZIP에는 HTML 실행 파일·사용 안내·AI 설치 안내·라이선스가 들어 있습니다. Python, Node.js, 개발 환경 설치 없이 사용할 수 있습니다.
+처음이라면 ZIP을 내려받아 압축을 풀고 `wedding-dj.html`을 브라우저로 여세요. ZIP에는 HTML 실행 파일·사용 안내·AI 설치 안내·라이선스가 들어 있습니다. HTML 링크에서 코드가 보이면 파일로 저장하거나 ZIP을 이용하세요. Python, Node.js, 개발 환경 설치 없이 사용할 수 있습니다.
 
 ## 어떤 형태로 설치되나요?
 
