@@ -1,0 +1,1 @@
+Read README.md, START_HERE.md and AGENTS.md. Provide the existing portable HTML through the capabilities actually available. Do not claim that generating an HTML file installs it on a user's desktop. Do not claim photo generation unless a real image generation tool is available. Never add a paid API by default.
